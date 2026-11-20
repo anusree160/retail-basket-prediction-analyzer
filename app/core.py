@@ -3,10 +3,9 @@
 
 from pathlib import Path
 
-from thilimarketbasket.dataset import generate_dataset, save_dataset
+from thilimarketbasket.dataset import generate_dataset, save_dataset, load_dataset
+from app.ngram import NGramModel
 
-
-# --- Milestone 1: Generate a synthetic retail basket dataset.
 
 def milestone_1(
     n_baskets: int = 20_000,
@@ -40,25 +39,33 @@ def milestone_1(
     }
 
 
-# --- Milestone 2: N-gram next-item prediction.
+def milestone_2(
+    dataset_dir="data/retail_dataset",
+    n=3,
+    alpha=0.1,
+):
+    """Train an n-gram model on the generated retail basket dataset."""
 
-def milestone_2():
-    raise NotImplementedError("TODO(milestone 2)")
+    dataset = load_dataset(dataset_dir)
 
+    model = NGramModel(n=n, alpha=alpha)
+    model.fit(dataset.baskets)
 
-# --- Milestone 3: Train a small neural language model.
+    return {
+        "model": model,
+        "n": n,
+        "vocabulary_size": len(model.vocabulary),
+        "training_baskets": len(dataset.baskets),
+    }
+
 
 def milestone_3():
     raise NotImplementedError("TODO(milestone 3)")
 
 
-# --- Milestone 4: Evaluate both models.
-
 def milestone_4():
     raise NotImplementedError("TODO(milestone 4)")
 
-
-# --- Milestone 5: Compare model performance.
 
 def milestone_5():
     raise NotImplementedError("TODO(milestone 5)")

@@ -53,9 +53,25 @@ def test_milestone_1(tmp_path):
 
 # Milestone 2: Implement the n-gram next-item predictor.
 
-@pytest.mark.skip(reason="not implemented yet")
+# Milestone 2: Implement the n-gram next-item predictor.
+
+from app.core import milestone_2
+
+
 def test_milestone_2():
-    raise NotImplementedError
+    result = milestone_2(n=3)
+
+    assert result["n"] == 3
+    assert result["training_baskets"] == 20_000
+    assert result["vocabulary_size"] == 1000
+
+    model = result["model"]
+
+    predictions = model.predict(["Tea", "Sugar"], k=5)
+
+    assert len(predictions) == 5
+    assert all(item not in ["Tea", "Sugar"] for item, score in predictions)
+    assert all(isinstance(score, float) for item, score in predictions)
 
 
 # Milestone 3: Pretrain a small language model.
