@@ -1,21 +1,12 @@
+[![Built with askThili](https://msrit.ask.thili.ai/api/v1/public/projects/tfyzt9ankk/badge.svg)](https://msrit.ask.thili.ai/b/tfyzt9ankk)
+
 # Retail Basket Prediction Analyzer
-
-
-
-![Built with askThili](https://ask.thili.ai/api/v1/public/projects/tfyzt9ankk/badge.svg)
-
-
 
 A comparative study of **N-gram and Transformer-based language models** for retail basket completion prediction using synthetic shopping basket data.
 
-
-
 [![Tests](https://github.com/anusree160/retail-basket-prediction-analyzer/actions/workflows/ci.yml/badge.svg)](https://github.com/anusree160/retail-basket-prediction-analyzer/actions/workflows/ci.yml)
 
-
-
 ---
-
 
 
 ## 1. Project Overview
