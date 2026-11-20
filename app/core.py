@@ -1,20 +1,28 @@
 
 """Core functionality for the Retail Basket Prediction Analyzer."""
 
+import random
 from pathlib import Path
 
-from thilimarketbasket.dataset import generate_dataset, save_dataset, load_dataset
+import numpy as np
+
+from thilimarketbasket.dataset import (
+    generate_dataset,
+    save_dataset,
+    load_dataset,
+)
+
 from app.ngram import NGramModel
 
 
 def milestone_1(
-    n_baskets: int = 20_000,
-    seed: int = 42,
-    min_support: float = 0.0005,
-    max_size: int = 5,
-    output_dir: str = "data/retail_dataset",
+    n_baskets=20_000,
+    seed=42,
+    min_support=0.0005,
+    max_size=5,
+    output_dir="data/retail_dataset",
 ):
-    """Generate and save synthetic shopping baskets with known purchasing patterns."""
+    """Generate and save synthetic shopping baskets."""
 
     dataset = generate_dataset(
         n_baskets=n_baskets,
@@ -43,29 +51,93 @@ def milestone_2(
     dataset_dir="data/retail_dataset",
     n=3,
     alpha=0.1,
+    seed=42,
 ):
-    """Train an n-gram model on the generated retail basket dataset."""
+    """Train the n-gram model using the shared training split."""
 
     dataset = load_dataset(dataset_dir)
 
+    baskets = [
+        sorted(set(basket))
+        for basket in dataset.baskets
+    ]
+
+    indices = np.random.RandomState(seed).permutation(
+        len(baskets)
+    )
+
+    train_end = int(0.80 * len(indices))
+    train_indices = indices[:train_end]
+
+    train_baskets = [
+        baskets[i] for i in train_indices
+    ]
+
+    rng = random.Random(seed)
+    train_sequences = []
+
+    for basket in train_baskets:
+        items = list(basket)
+        rng.shuffle(items)
+        train_sequences.append(items)
+
     model = NGramModel(n=n, alpha=alpha)
-    model.fit(dataset.baskets)
+    model.fit(train_sequences)
 
     return {
         "model": model,
         "n": n,
         "vocabulary_size": len(model.vocabulary),
-        "training_baskets": len(dataset.baskets),
+        "training_baskets": len(train_baskets),
+        "total_baskets": len(baskets),
     }
 
 
-def milestone_3():
-    raise NotImplementedError("TODO(milestone 3)")
+def milestone_3(
+    dataset_dir="data/retail_dataset",
+    output_dir="models/basket_transformer",
+    epochs=5,
+    batch_size=16,
+):
+    """Train the PyTorch Transformer language model."""
+
+    from app.train import train_language_model
+
+    return train_language_model(
+        dataset_dir=dataset_dir,
+        output_dir=output_dir,
+        epochs=epochs,
+        batch_size=batch_size,
+    )
 
 
-def milestone_4():
-    raise NotImplementedError("TODO(milestone 4)")
+def milestone_4(
+    dataset_dir="data/retail_dataset",
+    model_dir="models/basket_transformer",
+    n=3,
+):
+    """Evaluate the n-gram and Transformer models."""
+
+    from app.evaluate import evaluate_models
+
+    return evaluate_models(
+        dataset_dir=dataset_dir,
+        model_dir=model_dir,
+        n=n,
+    )
 
 
-def milestone_5():
-    raise NotImplementedError("TODO(milestone 5)")
+def milestone_5(
+    results_file="results/evaluation_results.json",
+    history_file="models/basket_transformer/training_history.json",
+    output_dir="results/figures",
+):
+    """Generate professional model comparison visualizations."""
+
+    from app.visualize import create_visualizations
+
+    return create_visualizations(
+        results_file=results_file,
+        history_file=history_file,
+        output_dir=output_dir,
+    )

@@ -1,0 +1,18 @@
+{
+    "N-gram": {
+        "Accuracy@1": 0.0205,
+        "Accuracy@5": 0.035,
+        "Accuracy@10": 0.0465,
+        "MRR": 0.032544435756251926,
+        "Mean Rank": 421.2595,
+        "Evaluated Cases": 2000
+    },
+    "Transformer": {
+        "Accuracy@1": 0.1205,
+        "Accuracy@5": 0.169,
+        "Accuracy@10": 0.2135,
+        "MRR": 0.15513828074092384,
+        "Mean Rank": 195.444,
+        "Evaluated Cases": 2000
+    }
+}
