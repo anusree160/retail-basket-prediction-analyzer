@@ -1,24 +1,24 @@
-\# Retail Basket Prediction Analyzer
+# Retail Basket Prediction Analyzer
 
 
 
-!\[Built with askThili](https://ask.thili.ai/api/v1/public/projects/tfyzt9ankk/badge.svg)
+![Built with askThili](https://ask.thili.ai/api/v1/public/projects/tfyzt9ankk/badge.svg)
 
 
 
-A comparative study of \*\*N-gram and Transformer-based language models\*\* for retail basket completion prediction using synthetic shopping basket data.
+A comparative study of **N-gram and Transformer-based language models** for retail basket completion prediction using synthetic shopping basket data.
 
 
 
-\[!\[Tests](https://github.com/anusree160/retail-basket-prediction-analyzer/actions/workflows/ci.yml/badge.svg)](https://github.com/anusree160/retail-basket-prediction-analyzer/actions/workflows/ci.yml)
+[![Tests](https://github.com/anusree160/retail-basket-prediction-analyzer/actions/workflows/ci.yml/badge.svg)](https://github.com/anusree160/retail-basket-prediction-analyzer/actions/workflows/ci.yml)
 
 
 
-\---
+---
 
 
 
-\## 1. Project Overview
+## 1. Project Overview
 
 
 
@@ -30,9 +30,9 @@ This project develops a Retail Basket Prediction Analyzer that compares two appr
 
 
 
-\- \*\*N-gram Model:\*\* A statistical model that learns item co-occurrence patterns from previous basket sequences.
+- **N-gram Model:** A statistical model that learns item co-occurrence patterns from previous basket sequences.
 
-\- \*\*Transformer Language Model:\*\* A small GPT-style causal Transformer trained on retail basket sequences using PyTorch.
+- **Transformer Language Model:** A small GPT-style causal Transformer trained on retail basket sequences using PyTorch.
 
 
 
@@ -40,27 +40,27 @@ Both models are trained and evaluated using the same synthetic retail dataset to
 
 
 
-\### Project Objectives
+### Project Objectives
 
 
 
-\- Generate synthetic shopping baskets containing planted product associations.
+- Generate synthetic shopping baskets containing planted product associations.
 
-\- Implement an N-gram-based prediction model.
+- Implement an N-gram-based prediction model.
 
-\- Train a small Transformer language model.
+- Train a small Transformer language model.
 
-\- Evaluate both models using ranking and prediction metrics.
+- Evaluate both models using ranking and prediction metrics.
 
-\- Compare their performance through research-oriented visualizations.
-
-
-
-\---
+- Compare their performance through research-oriented visualizations.
 
 
 
-\## 2. Project Milestones
+---
+
+
+
+## 2. Project Milestones
 
 
 
@@ -68,23 +68,23 @@ All five project milestones have been completed.
 
 
 
-\- \[x] \*\*Milestone 1:\*\* Generate a synthetic dataset of shopping baskets with planted itemsets.
+- [x] **Milestone 1:** Generate a synthetic dataset of shopping baskets with planted itemsets.
 
-\- \[x] \*\*Milestone 2:\*\* Implement an N-gram model for product prediction.
+- [x] **Milestone 2:** Implement an N-gram model for product prediction.
 
-\- \[x] \*\*Milestone 3:\*\* Train a small Transformer language model on basket sequences.
+- [x] **Milestone 3:** Train a small Transformer language model on basket sequences.
 
-\- \[x] \*\*Milestone 4:\*\* Evaluate both models using next-item prediction metrics.
+- [x] **Milestone 4:** Evaluate both models using next-item prediction metrics.
 
-\- \[x] \*\*Milestone 5:\*\* Compare model performance using metrics and visualizations.
-
-
-
-\---
+- [x] **Milestone 5:** Compare model performance using metrics and visualizations.
 
 
 
-\## 3. Dataset
+---
+
+
+
+## 3. Dataset
 
 
 
@@ -122,11 +122,11 @@ The dataset is split into:
 
 
 
-\- 80% Training data
+- 80% Training data
 
-\- 10% Validation data
+- 10% Validation data
 
-\- 10% Testing data
+- 10% Testing data
 
 
 
@@ -134,15 +134,15 @@ Both models use the same training and test split.
 
 
 
-\---
+---
 
 
 
-\## 4. Model Architecture
+## 4. Model Architecture
 
 
 
-\### 4.1 N-gram Model
+### 4.1 N-gram Model
 
 
 
@@ -154,15 +154,15 @@ Implementation features:
 
 
 
-\- Configurable N-gram order.
+- Configurable N-gram order.
 
-\- Context-based frequency counting.
+- Context-based frequency counting.
 
-\- Unigram fallback for unseen contexts.
+- Unigram fallback for unseen contexts.
 
-\- Additive smoothing.
+- Additive smoothing.
 
-\- Ranked product recommendations.
+- Ranked product recommendations.
 
 
 
@@ -170,7 +170,7 @@ The primary experiment uses a trigram configuration (`n=3`).
 
 
 
-\### 4.2 Transformer Language Model
+### 4.2 Transformer Language Model
 
 
 
@@ -216,11 +216,11 @@ The best-performing validation checkpoint is saved for evaluation.
 
 
 
-\---
+---
 
 
 
-\## 5. Experimental Methodology
+## 5. Experimental Methodology
 
 
 
@@ -230,19 +230,19 @@ The models are evaluated on the same held-out test set.
 
 For each test basket:
 
-1\. The products are shuffled using a fixed random seed.
+1. The products are shuffled using a fixed random seed.
 
-2\. One product is hidden.
+2. One product is hidden.
 
-3\. The remaining products are provided as the visible basket.
+3. The remaining products are provided as the visible basket.
 
-4\. Both models rank candidate products.
+4. Both models rank candidate products.
 
-5\. The position of the hidden product is used to calculate evaluation metrics.
+5. The position of the hidden product is used to calculate evaluation metrics.
 
 
 
-A total of \*\*2,000 test baskets\*\* were evaluated, with no skipped cases.
+A total of **2,000 test baskets** were evaluated, with no skipped cases.
 
 
 
@@ -250,27 +250,27 @@ Already-visible products are excluded from candidate recommendations.
 
 
 
-\### Evaluation Metrics
+### Evaluation Metrics
 
 
 
-\- \*\*Accuracy@1:\*\* Percentage of cases where the correct product is ranked first.
+- **Accuracy@1:** Percentage of cases where the correct product is ranked first.
 
-\- \*\*Accuracy@5:\*\* Percentage of cases where the correct product appears in the top five.
+- **Accuracy@5:** Percentage of cases where the correct product appears in the top five.
 
-\- \*\*Accuracy@10:\*\* Percentage of cases where the correct product appears in the top ten.
+- **Accuracy@10:** Percentage of cases where the correct product appears in the top ten.
 
-\- \*\*Mean Reciprocal Rank (MRR):\*\* Measures the average reciprocal rank of the correct product.
+- **Mean Reciprocal Rank (MRR):** Measures the average reciprocal rank of the correct product.
 
-\- \*\*Mean Rank:\*\* Average ranking position of the correct product. Lower is better.
-
-
-
-\---
+- **Mean Rank:** Average ranking position of the correct product. Lower is better.
 
 
 
-\## 6. Experimental Results
+---
+
+
+
+## 6. Experimental Results
 
 
 
@@ -282,43 +282,43 @@ The following results were obtained from the held-out test set.
 
 |---|---:|---:|
 
-| Accuracy@1 | 2.05% | \*\*12.05%\*\* |
+| Accuracy@1 | 2.05% | **12.05%** |
 
-| Accuracy@5 | 3.50% | \*\*16.90%\*\* |
+| Accuracy@5 | 3.50% | **16.90%** |
 
-| Accuracy@10 | 4.65% | \*\*21.35%\*\* |
+| Accuracy@10 | 4.65% | **21.35%** |
 
-| MRR | 0.0325 | \*\*0.1551\*\* |
+| MRR | 0.0325 | **0.1551** |
 
-| Mean Rank | 421.26 | \*\*195.44\*\* |
-
-
-
-\### Key Findings
+| Mean Rank | 421.26 | **195.44** |
 
 
 
-1\. The Transformer achieved the highest performance across all reported metrics.
-
-2\. Its top-1 accuracy was approximately 5.9 times that of the N-gram model.
-
-3\. Its top-10 accuracy was also substantially higher.
-
-4\. The Transformer achieved a lower mean rank, indicating that the correct product was generally positioned closer to the top of its recommendations.
-
-5\. The N-gram model provided a simpler statistical baseline, while the Transformer learned more effective sequence representations for this experiment.
+### Key Findings
 
 
 
-\*\*Overall finding:\*\* The Transformer outperformed the N-gram baseline on this synthetic basket-completion task.
+1. The Transformer achieved the highest performance across all reported metrics.
+
+2. Its top-1 accuracy was approximately 5.9 times that of the N-gram model.
+
+3. Its top-10 accuracy was also substantially higher.
+
+4. The Transformer achieved a lower mean rank, indicating that the correct product was generally positioned closer to the top of its recommendations.
+
+5. The N-gram model provided a simpler statistical baseline, while the Transformer learned more effective sequence representations for this experiment.
 
 
 
-\---
+**Overall finding:** The Transformer outperformed the N-gram baseline on this synthetic basket-completion task.
 
 
 
-\## 7. Visualizations
+---
+
+
+
+## 7. Visualizations
 
 
 
@@ -326,35 +326,35 @@ Four visualizations were generated to compare the models and examine training pe
 
 
 
-\### Top-K Prediction Accuracy
+### Top-K Prediction Accuracy
 
 
 
-!\[Top-K Accuracy](results/figures/01\_top\_k\_accuracy.png)
+![Top-K Accuracy](results/figures/01_top_k_accuracy.png)
 
 
 
-\### Ranking Performance
+### Ranking Performance
 
 
 
-!\[Ranking Performance](results/figures/02\_ranking\_performance.png)
+![Ranking Performance](results/figures/02_ranking_performance.png)
 
 
 
-\### Transformer Training and Validation Loss
+### Transformer Training and Validation Loss
 
 
 
-!\[Training Loss](results/figures/03\_training\_loss.png)
+![Training Loss](results/figures/03_training_loss.png)
 
 
 
-\### Relative Model Improvement
+### Relative Model Improvement
 
 
 
-!\[Relative Improvement](results/figures/04\_relative\_improvement.png)
+![Relative Improvement](results/figures/04_relative_improvement.png)
 
 
 
@@ -362,11 +362,11 @@ All figures are saved in `results/figures/`.
 
 
 
-\---
+---
 
 
 
-\## 8. Project Structure
+## 8. Project Structure
 
 
 
@@ -392,7 +392,7 @@ retail-basket-prediction-analyzer/
 
 │   ├── tokenizer.py
 
-│   ├── language\\\\\\\_model.py
+│   ├── language_model.py
 
 │   ├── train.py
 
@@ -404,21 +404,21 @@ retail-basket-prediction-analyzer/
 
 ├── models/
 
-│   └── basket\\\\\\\_transformer/
+│   └── basket_transformer/
 
-│       ├── best\\\\\\\_model.pt
+│       ├── best_model.pt
 
 │       ├── tokenizer.json
 
-│       ├── training\\\\\\\_history.json
+│       ├── training_history.json
 
-│       └── split\\\\\\\_indices.json
+│       └── split_indices.json
 
 │
 
 ├── results/
 
-│   ├── evaluation\\\\\\\_results.json
+│   ├── evaluation_results.json
 
 │   └── figures/
 
@@ -426,7 +426,7 @@ retail-basket-prediction-analyzer/
 
 ├── tests/
 
-│   └── test\\\\\\\_core.py
+│   └── test_core.py
 
 │
 
@@ -448,27 +448,27 @@ The generated dataset is stored locally in `data/` and excluded from Git.
 
 
 
-\---
+---
 
 
 
-\## 9. Installation and Usage
+## 9. Installation and Usage
 
 
 
-\### Requirements
+### Requirements
 
 
 
-\- Python 3.12
+- Python 3.12
 
-\- Git
+- Git
 
-\- pip
+- pip
 
 
 
-\### Step 1: Clone the repository
+### Step 1: Clone the repository
 
 
 
@@ -482,11 +482,11 @@ cd retail-basket-prediction-analyzer
 
 
 
-\### Step 2: Create a virtual environment
+### Step 2: Create a virtual environment
 
 
 
-\*\*Windows:\*\*
+**Windows:**
 
 
 
@@ -494,13 +494,13 @@ cd retail-basket-prediction-analyzer
 
 py -3.12 -m venv .venv
 
-.venv\\\\\\\\Scripts\\\\\\\\activate
+.venv\Scripts\activate
 
 ```
 
 
 
-\*\*Linux/macOS:\*\*
+**Linux/macOS:**
 
 
 
@@ -514,7 +514,7 @@ source .venv/bin/activate
 
 
 
-\### Step 3: Install dependencies
+### Step 3: Install dependencies
 
 
 
@@ -526,7 +526,7 @@ python -m pip install -r requirements.txt
 
 
 
-\### Step 4: Verify the application
+### Step 4: Verify the application
 
 
 
@@ -550,19 +550,19 @@ Retail Basket Prediction Analyzer is ready. Open README.md for your milestones.
 
 
 
-\### Step 5: Run the automated tests
+### Step 5: Run the automated tests
 
 
 
 ```bash
 
-python -m pytest tests/test\\\\\\\_core.py -v
+python -m pytest tests/test_core.py -v
 
 ```
 
 
 
-\### Step 6: Run the five milestones
+### Step 6: Run the five milestones
 
 
 
@@ -572,29 +572,29 @@ The following commands execute the project pipeline in order:
 
 ```bash
 
-python -c "from app.core import milestone\\\\\\\_1; print(milestone\\\\\\\_1())"
+python -c "from app.core import milestone_1; print(milestone_1())"
 
-python -c "from app.core import milestone\\\\\\\_2; print(milestone\\\\\\\_2())"
+python -c "from app.core import milestone_2; print(milestone_2())"
 
-python -c "from app.core import milestone\\\\\\\_3; print(milestone\\\\\\\_3())"
+python -c "from app.core import milestone_3; print(milestone_3())"
 
-python -c "from app.core import milestone\\\\\\\_4; print(milestone\\\\\\\_4())"
+python -c "from app.core import milestone_4; print(milestone_4())"
 
-python -c "from app.core import milestone\\\\\\\_5; print(milestone\\\\\\\_5())"
+python -c "from app.core import milestone_5; print(milestone_5())"
 
 ```
 
 
 
-\*\*Note:\*\* Running the pipeline again generates data, trains a new model, evaluates it, and recreates the visualizations. The full training and evaluation process takes longer than running the tests.
+**Note:** Running the pipeline again generates data, trains a new model, evaluates it, and recreates the visualizations. The full training and evaluation process takes longer than running the tests.
 
 
 
-\---
+---
 
 
 
-\## 10. Testing and Continuous Integration
+## 10. Testing and Continuous Integration
 
 
 
@@ -606,9 +606,9 @@ GitHub Actions is configured to execute the tests automatically on:
 
 
 
-\- Every push to the repository.
+- Every push to the repository.
 
-\- Every pull request.
+- Every pull request.
 
 
 
@@ -616,57 +616,57 @@ The workflow uses Ubuntu and Python 3.12, installs the dependencies, and execute
 
 
 
-\*\*Latest verified test result:\*\* 5 passed, 0 failed locally. GitHub Actions workflow run #2 completed successfully.
+**Latest verified test result:** 5 passed, 0 failed locally. GitHub Actions workflow run #2 completed successfully.
 
 
 
-\[View GitHub Actions](https://github.com/anusree160/retail-basket-prediction-analyzer/actions)
+[View GitHub Actions](https://github.com/anusree160/retail-basket-prediction-analyzer/actions)
 
 
 
-\---
+---
 
 
 
-\## 11. Limitations and Future Improvements
+## 11. Limitations and Future Improvements
 
 
 
-\### Current Limitations
+### Current Limitations
 
 
 
-\- The dataset is synthetic rather than collected from real retail transactions.
+- The dataset is synthetic rather than collected from real retail transactions.
 
-\- Basket order is shuffled, so the task evaluates basket completion rather than chronological next-purchase forecasting.
+- Basket order is shuffled, so the task evaluates basket completion rather than chronological next-purchase forecasting.
 
-\- The Transformer is intentionally small and trained for only five epochs.
+- The Transformer is intentionally small and trained for only five epochs.
 
-\- Prediction accuracy depends on the dataset structure and experimental configuration.
-
-
-
-\### Future Improvements
+- Prediction accuracy depends on the dataset structure and experimental configuration.
 
 
 
-\- Experiment with different N-gram orders.
-
-\- Tune Transformer architecture and hyperparameters.
-
-\- Explore larger datasets containing real retail transactions.
-
-\- Investigate optimization techniques such as Genetic Algorithms, Particle Swarm Optimization, and Ant Colony Optimization for hyperparameter search.
-
-\- Perform deeper error analysis and evaluate generalization across different datasets.
+### Future Improvements
 
 
 
-\---
+- Experiment with different N-gram orders.
+
+- Tune Transformer architecture and hyperparameters.
+
+- Explore larger datasets containing real retail transactions.
+
+- Investigate optimization techniques such as Genetic Algorithms, Particle Swarm Optimization, and Ant Colony Optimization for hyperparameter search.
+
+- Perform deeper error analysis and evaluate generalization across different datasets.
 
 
 
-\## 12. Conclusion
+---
+
+
+
+## 12. Conclusion
 
 
 
@@ -682,20 +682,20 @@ The results demonstrate the potential of Transformer-based sequence models for l
 
 
 
-\---
+---
 
 
 
-\## Repository
+## Repository
 
 
 
-\*\*GitHub:\*\* https://github.com/anusree160/retail-basket-prediction-analyzer
+**GitHub:** https://github.com/anusree160/retail-basket-prediction-analyzer
 
 
 
-\*\*Built with:\*\* Python, PyTorch, NumPy, Pandas, Matplotlib, pytest, and thilimarketbasket.
+**Built with:** Python, PyTorch, NumPy, Pandas, Matplotlib, pytest, and thilimarketbasket.
 
 
 
-\*\*Project platform:\*\* \[askThili](https://ask.thili.ai/b/tfyzt9ankk)
+**Project platform:** [askThili](https://ask.thili.ai/b/tfyzt9ankk)
